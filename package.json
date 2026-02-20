@@ -1,0 +1,39 @@
+{
+  "name": "salgadostudio",
+  "version": "1.0.0",
+  "description": "Website for Paula Salgado Studio - Architect of Personal Power.",
+  "main": "server.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./public/styles.css --minify",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./public/styles.css --watch",
+    "dev:server": "nodemon server.js",
+    "dev": "concurrently \"npm:watch:css\" \"npm:dev:server\"",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santyE90/salgadostudio.git"
+  },
+  "keywords": [
+    "express",
+    "tailwind",
+    "mobile-first"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/santyE90/salgadostudio/issues"
+  },
+  "homepage": "https://github.com/santyE90/salgadostudio#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.24",
+    "concurrently": "^9.2.1",
+    "nodemon": "^3.1.13",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17"
+  }
+}
