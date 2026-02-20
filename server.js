@@ -10,6 +10,9 @@ const port = process.env.PORT || 3000;
 const dataDir = path.join(__dirname, "data");
 const submissionsFile = path.join(dataDir, "submissions.json");
 
+// Required for secure cookies to work correctly behind Render's proxy.
+app.set("trust proxy", 1);
+
 const adminUser = process.env.ADMIN_USERNAME || "owner";
 const adminPassword = process.env.ADMIN_PASSWORD || "change-this-password";
 
