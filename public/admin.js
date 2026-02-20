@@ -91,7 +91,7 @@ async function loadSubmissions() {
   if (response.status === 401) {
     loginCard.classList.remove("hidden");
     submissionsCard.classList.add("hidden");
-    return;
+    return false;
   }
 
   if (!response.ok) {
@@ -111,6 +111,7 @@ async function loadSubmissions() {
 
   loginCard.classList.add("hidden");
   submissionsCard.classList.remove("hidden");
+  return true;
 }
 
 loginForm.addEventListener("submit", async (event) => {
@@ -122,6 +123,7 @@ loginForm.addEventListener("submit", async (event) => {
 
   const response = await fetch("/admin/login", {
     method: "POST",
+    credentials: "same-origin",
     headers: {
       "Content-Type": "application/json"
     },
@@ -129,12 +131,17 @@ loginForm.addEventListener("submit", async (event) => {
   });
 
   if (!response.ok) {
+    loginError.textContent = "Login failed. Check credentials.";
     loginError.classList.remove("hidden");
     return;
   }
 
   loginForm.reset();
-  await loadSubmissions();
+  const isAuthorized = await loadSubmissions();
+  if (!isAuthorized) {
+    loginError.textContent = "Login succeeded, but session was not established. Use HTTPS and verify server env vars.";
+    loginError.classList.remove("hidden");
+  }
 });
 
 logoutButton.addEventListener("click", async () => {
