@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Blueprint Booking | Paula Salgado Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="min-h-screen bg-aura px-4 pb-16 pt-8 sm:px-6">
+      <header class="mx-auto max-w-3xl">
+        <a class="text-sm text-gold underline-offset-4 hover:underline" href="/">Back to Home</a>
+        <h1 class="mt-4 text-4xl leading-tight text-cream sm:text-5xl">Personal Blueprint Booking</h1>
+      </header>
+
+      <main class="mx-auto mt-8 max-w-3xl">
+        <section class="section-card">
+          <div class="mb-6 flex items-center justify-between gap-3 text-sm text-cream/80">
+            <p id="stepCount">Step 1 of 11</p>
+            <div class="h-2 w-40 overflow-hidden rounded-full bg-midnight/70 sm:w-56">
+              <div id="progressBar" class="h-full w-[9%] bg-gold transition-all duration-300"></div>
+            </div>
+          </div>
+
+          <form id="bookingForm" class="grid gap-6">
+            <div class="step grid gap-4" data-step="1">
+              <p class="text-base leading-relaxed text-cream/95">
+                Welcome to your first step into discovering your Personal Blueprint. This space is for women ready to see themselves fully, align their inner world with the outer world, and step into calm, sovereign power. Please answer thoughtfully, this is a reflective space, not a test.
+              </p>
+              <label class="grid gap-2 text-sm font-medium tracking-wide">
+                First Name
+                <input class="input-field" name="firstName" type="text" required />
+              </label>
+              <label class="grid gap-2 text-sm font-medium tracking-wide">
+                Last Name
+                <input class="input-field" name="lastName" type="text" required />
+              </label>
+              <label class="grid gap-2 text-sm font-medium tracking-wide">
+                Email
+                <input class="input-field" name="email" type="email" required />
+              </label>
+            </div>
+
+            <div class="step hidden grid gap-3" data-step="2">
+              <p class="text-lg leading-relaxed">Where were you born? (city and country)</p>
+              <input class="input-field" name="birthPlace" type="text" />
+            </div>
+
+            <div class="step hidden grid gap-3" data-step="3">
+              <p class="text-lg leading-relaxed">What is your birthdate in DD/MM/YYYY format?</p>
+              <input class="input-field" name="birthDate" type="text" inputmode="numeric" pattern="^([0-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/\d{4}$" placeholder="DD/MM/YYYY" />
+            </div>
+
+            <div class="step hidden grid gap-3" data-step="4">
+              <p class="text-lg leading-relaxed">At what time were you born? (If known) This question is optional. Please include the hour and minute if you know it.</p>
+              <input class="input-field" name="birthTime" type="text" placeholder="Example: 07:35" />
+            </div>
+
+            <div class="step hidden grid gap-3" data-step="5">
+              <p class="text-lg leading-relaxed">What does "Personal Power" mean for you right now?</p>
+              <textarea class="input-field min-h-[140px]" name="personalPower"></textarea>
+            </div>
+
+            <div class="step hidden grid gap-3" data-step="6">
+              <p class="text-lg leading-relaxed">What areas of your life feel fragmented, misaligned or blocked? Examples: identity, home, money, health, relationships, energy, ...</p>
+              <textarea class="input-field min-h-[140px]" name="fragmentedAreas"></textarea>
+            </div>
+
+            <div class="step hidden grid gap-3" data-step="7">
+              <p class="text-lg leading-relaxed">Describe a moment when you felt fully yourself. What did it feel like?</p>
+              <textarea class="input-field min-h-[140px]" name="fullyYourselfMoment"></textarea>
+            </div>
+
+            <div class="step hidden grid gap-3" data-step="8">
+              <p class="text-lg leading-relaxed">Are you willing to invest time, energy, vulnerability and focus into your own alignment?</p>
+              <div class="grid gap-3 sm:grid-cols-2">
+                <label class="flex items-center gap-3 rounded-xl border border-gold/35 bg-midnight/40 px-4 py-3">
+                  <input type="radio" name="alignmentInvestment" value="Yes" />
+                  <span>Yes</span>
+                </label>
+                <label class="flex items-center gap-3 rounded-xl border border-gold/35 bg-midnight/40 px-4 py-3">
+                  <input type="radio" name="alignmentInvestment" value="No" />
+                  <span>No</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="step hidden grid gap-3" data-step="9">
+              <p class="text-lg leading-relaxed">What does being aligned, seen, and supported mean to you?</p>
+              <textarea class="input-field min-h-[140px]" name="alignedSeenSupported"></textarea>
+            </div>
+
+            <div class="step hidden grid gap-3" data-step="10">
+              <p class="text-lg leading-relaxed">When someone witnesses your true self without judgement, how does that feel for you?</p>
+              <textarea class="input-field min-h-[140px]" name="witnessedTrueSelf"></textarea>
+            </div>
+
+            <div class="step hidden grid gap-3" data-step="11">
+              <p class="text-lg leading-relaxed">How would you like to connect for the first call if selected?</p>
+              <div class="grid gap-2 sm:grid-cols-3">
+                <label class="flex items-center gap-3 rounded-xl border border-gold/35 bg-midnight/40 px-4 py-3">
+                  <input type="radio" name="firstCallPreference" value="Zoom" />
+                  <span>Zoom</span>
+                </label>
+                <label class="flex items-center gap-3 rounded-xl border border-gold/35 bg-midnight/40 px-4 py-3">
+                  <input type="radio" name="firstCallPreference" value="Phone" />
+                  <span>Phone</span>
+                </label>
+                <label class="flex items-center gap-3 rounded-xl border border-gold/35 bg-midnight/40 px-4 py-3">
+                  <input id="otherPreference" type="radio" name="firstCallPreference" value="Other" />
+                  <span>Other</span>
+                </label>
+              </div>
+              <input id="otherPreferenceText" class="input-field hidden" name="firstCallPreferenceOther" type="text" placeholder="If other, write your preferred method" />
+            </div>
+
+            <div class="flex items-center justify-between gap-3 pt-2">
+              <button id="backButton" class="rounded-full border border-gold/60 px-5 py-3 text-sm font-semibold uppercase tracking-wider text-gold transition hover:bg-gold/15" type="button">
+                Back
+              </button>
+              <button id="nextButton" class="cta-button" type="button">Next</button>
+              <button id="submitButton" class="cta-button hidden" type="submit">Submit</button>
+            </div>
+          </form>
+
+          <div id="thankYou" class="hidden rounded-2xl border border-gold/40 bg-midnight/45 p-5 text-base leading-relaxed text-cream/95">
+            Thank you for reflecting and sharing. Your answer will help us understand if this container aligns with your readiness and energy. We will review your submission and reach out to schedule a discovery conversation if your alignment matches the Personal Blueprint container.
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/booking.js"></script>
+  </body>
+</html>
